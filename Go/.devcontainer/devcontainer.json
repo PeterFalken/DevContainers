@@ -1,0 +1,26 @@
+{
+	"name": "DevCont - Go",
+	"image": "go:alpine",
+	// "postStartCommand": ".devcontainer/startup.sh;",
+	"runArgs": [
+		"--env-file",
+		".devcontainer/devcontainer.env",
+		"--name",
+		"DevCont.Go",
+		// "--network=devcontainers",
+	],
+	"customizations": {
+		"vscode": {
+			"extensions": [],
+			"settings": {}
+		}
+	},
+	"features": {
+		"ghcr.io/devcontainers/features/common-utils:2": {
+			"username": "vscode"
+		}
+	},
+	"remoteUser": "vscode",
+}
+
+}
