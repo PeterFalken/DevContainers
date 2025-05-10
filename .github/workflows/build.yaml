@@ -1,0 +1,36 @@
+name: "Build"
+
+on:
+  # push: # On pushes of tags for 'main'
+  #   branches:
+  #     - 'main'
+  #   tags:
+  #     - 'v*'
+  schedule: # At 03:30 on every 15th.
+    - cron: "30 3 15 * *"
+  workflow_dispatch: {} # Allow manual activation
+
+jobs:
+  Build:
+    # check: https://github.com/devcontainers/images/pull/1374/files
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - id: tag
+        name: Git Semantic Version - tag
+        uses: PaulHatch/semantic-version@v5.4.0
+        with:
+          tag_prefix: "v"
+          bump_each_commit: true
+          major_pattern: "major: "
+          minor_pattern: "feat: "
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
