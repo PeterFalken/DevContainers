@@ -1,0 +1,30 @@
+{
+	"name": "DevCont - Python",
+	"image": "python:alpine",
+	// "postStartCommand": ".devcontainer/startup.sh;",
+	"runArgs": [
+		"--env-file",
+		".devcontainer/devcontainer.env",
+		"--name",
+		"DevCont.Python",
+		// "--network=devcontainers",
+	],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-python.debugpy",
+				"ms-python.isort",
+				"ms-python.python",
+				"ms-python.vscode-pylance"
+				// "redhat.vscode-yaml",
+			],
+			"settings": {}
+		}
+	},
+	"features": {
+		"ghcr.io/devcontainers/features/common-utils:2": {
+			"username": "vscode"
+		}
+	},
+	"remoteUser": "vscode",
+}

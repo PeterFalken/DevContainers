@@ -34,3 +34,12 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build Python DevCont
+        uses: devcontainers/ci@v0.3
+        with:
+          imageName: docker.io/peterfalken/devcont.python
+          imageTag: latest,${{ steps.tag.outputs.version_tag }}
+          noCache: true
+          subFolder: Python
+          push: always
