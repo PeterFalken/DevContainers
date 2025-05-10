@@ -1,0 +1,21 @@
+{
+	"name": "DevCont - QMK",
+	"image": "debian:bookworm-slim",
+	"postStartCommand": ".devcontainer/startup.sh;",
+	"runArgs": [
+		"--name",
+		"DevCont.QMK"
+	],
+	"customizations": {
+		"vscode": {
+			"extensions": [],
+			"settings": {}
+		}
+	},
+	"features": {
+		"ghcr.io/devcontainers/features/common-utils:2": {
+			"username": "vscode"
+		}
+	},
+	"remoteUser": "vscode",
+}
