@@ -35,6 +35,15 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+      - name: Build Golang DevCont
+        uses: devcontainers/ci@v0.3
+        with:
+          imageName: docker.io/peterfalken/devcont.golang
+          imageTag: latest,${{ steps.tag.outputs.version_tag }}
+          noCache: true
+          subFolder: Golang
+          push: always
+
       - name: Build Python DevCont
         uses: devcontainers/ci@v0.3
         with:
@@ -42,4 +51,22 @@ jobs:
           imageTag: latest,${{ steps.tag.outputs.version_tag }}
           noCache: true
           subFolder: Python
+          push: always
+
+      - name: Build QMK DevCont
+        uses: devcontainers/ci@v0.3
+        with:
+          imageName: docker.io/peterfalken/devcont.qmk
+          imageTag: latest,${{ steps.tag.outputs.version_tag }}
+          noCache: true
+          subFolder: QMK
+          push: always
+
+      - name: Build Rust DevCont
+        uses: devcontainers/ci@v0.3
+        with:
+          imageName: docker.io/peterfalken/devcont.rust
+          imageTag: latest,${{ steps.tag.outputs.version_tag }}
+          noCache: true
+          subFolder: Rust
           push: always
