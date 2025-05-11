@@ -1,12 +1,12 @@
 {
-	"name": "DevCont - Go",
-	"image": "go:alpine",
+	"name": "DevCont - Golang",
+	"image": "golang:alpine",
 	// "postStartCommand": ".devcontainer/startup.sh;",
 	"runArgs": [
 		"--env-file",
 		".devcontainer/devcontainer.env",
 		"--name",
-		"DevCont.Go",
+		"DevCont.Golang",
 		// "--network=devcontainers",
 	],
 	"customizations": {
