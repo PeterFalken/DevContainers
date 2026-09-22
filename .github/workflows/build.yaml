@@ -22,7 +22,7 @@ jobs:
 
       - id: sem-tag
         name: Git Semantic Version - tag
-        uses: PaulHatch/semantic-version@v5.4.0
+        uses: PaulHatch/semantic-version@v6.0.4
         with:
           tag_prefix: "v"
           bump_each_commit: true
